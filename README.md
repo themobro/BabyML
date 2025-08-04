@@ -1,2 +1,0 @@
-# BabyML
-NN LAB 
