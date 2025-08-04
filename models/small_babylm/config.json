@@ -1,8 +1,0 @@
-{
-  "model_type": "small",
-  "d_model": 64,
-  "n_heads": 2,
-  "n_layers": 2,
-  "d_ff": 256,
-  "vocab_size": 112
-}
