@@ -63,7 +63,7 @@ Each model was scored based on whether it assigned lower perplexity to grammatic
 ├── tokenizer.py          # Simple tokenizer
 ├── train.py              # Training pipeline
 ├── evaluate.py           # Evaluation script
-├── generate_report.py    # Report generation
+
 ├── requirements.txt      # Dependencies
 ├── babylm_report.tex    # LaTeX report
 ├── training_curves.png   # Training visualization
@@ -91,7 +91,7 @@ This study demonstrates that even small transformer models can learn meaningful 
 - **`model.py`**: Complete transformer implementation
 - **`train.py`**: Training pipeline with data generation
 - **`evaluate.py`**: Minimal pairs evaluation
-- **`generate_report.py`**: LaTeX report generation
+
 - **`babylm_report.tex`**: Academic report
 - **`models/`**: Trained model checkpoints with configurations
 
