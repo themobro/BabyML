@@ -1,34 +1,12 @@
 # BabyLM Training and Evaluation Project
 
-This project implements and compares two different BabyLM (Baby Language Model) architectures for a university assignment on language model training.
+This project implements and compares two different BabyLM (Baby Language Model) architectures to investigate the relationship between model capacity and grammatical competence.
 
-## 📋 Assignment Requirements
+## Project Overview
 
-✅ **Train two different BabyLMs** - Small vs Large architectures  
-✅ **Extremely small models** - Resource-efficient training  
-✅ **Evaluate on minimal pairs** - 1000+ grammatical test sentences  
-✅ **Write report** - Complete LaTeX report with analysis  
-✅ **Hand in models** - Both trained models included  
+Two transformer-based language models were implemented with distinct architectural differences to evaluate their performance on grammatical minimal pairs. The study demonstrates how model size affects linguistic understanding in small-scale language models.
 
-## 🏗️ Project Structure
-
-```
-├── model.py              # Transformer model implementation
-├── tokenizer.py          # Simple tokenizer implementation
-├── train.py              # Training script for both models
-├── evaluate.py           # Evaluation script using minimal pairs
-├── generate_report.py    # Automatic LaTeX report generation
-├── requirements.txt      # Python dependencies
-├── babylm_report.tex    # LaTeX report
-├── training_curves.png   # Training loss visualization
-├── model_comparison.png  # Evaluation results comparison
-├── evaluation_results.json # Detailed evaluation data
-└── models/               # Trained model checkpoints
-    ├── small_babylm/     # Small model (64-dim, 2 heads, 2 layers)
-    └── large_babylm/     # Large model (128-dim, 4 heads, 4 layers)
-```
-
-## 🧠 Model Architectures
+## Model Architectures
 
 ### Small BabyLM
 - **Embedding dimension**: 64
@@ -44,91 +22,79 @@ This project implements and compares two different BabyLM (Baby Language Model) 
 - **Feed-forward dimension**: 512
 - **Max sequence length**: 512
 
-## 🚀 Quick Start
+## Implementation Details
 
-### Installation
-```bash
-pip install -r requirements.txt
-```
+### Training Configuration
+- **Optimizer**: Adam (learning rate: 0.001)
+- **Batch size**: 8
+- **Training epochs**: 3
+- **Sequence length**: 64 tokens
+- **Vocabulary size**: 112 tokens
+- **Training samples**: 200
 
-### Training
-```bash
-python train.py
-```
-This will train both models and save them to `models/` directory.
-
-### Evaluation
-```bash
-python evaluate.py
-```
-This will evaluate both models on 1000+ minimal pairs.
-
-### Report Generation
-```bash
-python generate_report.py
-```
-This will generate the LaTeX report.
-
-## 📊 Results
-
-| Model | Accuracy | Performance |
-|-------|----------|-------------|
-| Small BabyLM | 88.3% | Good baseline performance |
-| Large BabyLM | 98.7% | Significant improvement |
-| **Improvement** | **+10.4 pp** | Clear benefit of larger model |
-
-## 🔬 Evaluation Methodology
-
-Models are evaluated on minimal pairs testing:
-- Subject-verb agreement ("The cat runs" vs "The cats run")
-- Auxiliary verb agreement ("I am going" vs "I are going")
+### Evaluation Methodology
+Models were evaluated on 1,000 minimal pairs covering:
+- Subject-verb agreement
+- Auxiliary verb agreement
 - Word order preferences
 - Determiner-noun agreement
 
-Accuracy is measured by whether models assign lower perplexity to grammatically correct sentences.
+Each model was scored based on whether it assigned lower perplexity to grammatically correct sentences.
 
-## 📈 Key Findings
+## Results
 
-1. **Model Size Matters**: Larger model shows 10.4 percentage point improvement
-2. **Resource Efficient**: Both models train successfully on CPU
-3. **Grammatical Understanding**: Both models learn meaningful patterns
-4. **Scalable Architecture**: Clear performance benefits from increased capacity
+| Model | Accuracy | Performance |
+|-------|----------|-------------|
+| Small BabyLM | 88.3% | Baseline performance |
+| Large BabyLM | 98.7% | Enhanced performance |
+| **Improvement** | **+10.4 pp** | Significant benefit of increased capacity |
 
-## 📁 Files Description
+## Key Findings
 
-- **`model.py`**: Complete transformer implementation from scratch
-- **`train.py`**: Training pipeline with sample data generation
-- **`evaluate.py`**: Minimal pairs evaluation with 1000+ test cases
-- **`generate_report.py`**: Automatic LaTeX report generation
-- **`babylm_report.tex`**: Complete academic report
-- **`models/`**: Trained model checkpoints with configurations
+1. **Model Size Impact**: The larger model demonstrates a 10.4 percentage point improvement in grammatical accuracy
+2. **Resource Efficiency**: Both models train successfully on limited computational resources
+3. **Grammatical Learning**: Both architectures learn meaningful linguistic patterns
+4. **Scalable Performance**: Clear benefits from increased model capacity
 
-## 🎯 Assignment Compliance
+## Project Structure
 
-✅ **Two different BabyLMs** - Small vs Large architectures  
-✅ **Extremely small models** - Lightweight, CPU-friendly  
-✅ **1000+ minimal pairs** - Comprehensive evaluation  
-✅ **Appropriate dataset** - English grammatical competence  
-✅ **Complete report** - LaTeX format with analysis  
-✅ **Models included** - Ready for submission  
+```
+├── model.py              # Transformer implementation
+├── tokenizer.py          # Simple tokenizer
+├── train.py              # Training pipeline
+├── evaluate.py           # Evaluation script
+├── generate_report.py    # Report generation
+├── requirements.txt      # Dependencies
+├── babylm_report.tex    # LaTeX report
+├── training_curves.png   # Training visualization
+├── model_comparison.png  # Results comparison
+├── evaluation_results.json # Detailed results
+└── models/               # Trained models
+    ├── small_babylm/     # Small model checkpoint
+    └── large_babylm/     # Large model checkpoint
+```
 
-## 📝 Usage
-
-The project demonstrates:
-- From-scratch transformer implementation
-- Minimal pairs evaluation methodology
-- Model size impact analysis
-- Resource-efficient training
-- Professional report generation
-
-## 🔧 Technical Details
+## Technical Implementation
 
 - **Framework**: PyTorch 2.0+
 - **Architecture**: Transformer with causal attention
 - **Training**: Adam optimizer, 3 epochs
-- **Evaluation**: 1000+ minimal pairs
-- **Report**: LaTeX with tables and analysis
+- **Evaluation**: 1,000+ minimal pairs
+- **Report**: LaTeX with comprehensive analysis
 
-## 📄 License
+## Conclusion
+
+This study demonstrates that even small transformer models can learn meaningful grammatical patterns, with larger models showing clear performance improvements on minimal pairs evaluation. The results support the hypothesis that increased model capacity leads to better linguistic understanding in language models.
+
+## Files Description
+
+- **`model.py`**: Complete transformer implementation
+- **`train.py`**: Training pipeline with data generation
+- **`evaluate.py`**: Minimal pairs evaluation
+- **`generate_report.py`**: LaTeX report generation
+- **`babylm_report.tex`**: Academic report
+- **`models/`**: Trained model checkpoints with configurations
+
+## License
 
 This project is created for educational purposes as part of a university assignment. 
